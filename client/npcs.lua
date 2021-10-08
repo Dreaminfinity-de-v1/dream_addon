@@ -64,12 +64,22 @@ Citizen.CreateThread(function()
                     end
 
                     local add = 0
-                    if pos.name ~= nil then
-                        add = 0.15
-                        DrawText3D(x,y,z+2.00, "~c~"..pos.name, 1.0, 1)
+                    
+                    if v.DrawRange ~= nil then
+                        if pos.name ~= nil then
+                            add = 0.15
+                            DrawText3D(x,y,z+2.00, "~c~"..pos.name, 1.0, 1, v.DrawRange)
+                        end
+                        DrawText3D(x,y,z+2.15+add, "~g~"..titel, 1.2, 1, v.DrawRange)
+                        DrawText3D(x,y,z+2.00+add, "~w~"..subtitel, 1.0, 1,v.DrawRange)
+                    else
+                        if pos.name ~= nil then
+                            add = 0.15
+                            DrawText3D(x,y,z+2.00, "~c~"..pos.name, 1.0, 1)
+                        end
+                        DrawText3D(x,y,z+2.15+add, "~g~"..titel, 1.2, 1)
+                        DrawText3D(x,y,z+2.00+add, "~w~"..subtitel, 1.0, 1)
                     end
-                    DrawText3D(x,y,z+2.15+add, "~g~"..titel, 1.2, 1)
-                    DrawText3D(x,y,z+2.00+add, "~w~"..subtitel, 1.0, 1)
                 end
             end
         end
@@ -82,7 +92,7 @@ end)
 
 
 
-function DrawText3D(x,y,z, text, scl, font) 
+function DrawText3D(x,y,z, text, scl, font, draw) 
 
     local onScreen,_x,_y=World3dToScreen2d(x,y,z)
     local px,py,pz=table.unpack(GetGameplayCamCoords())
@@ -91,19 +101,35 @@ function DrawText3D(x,y,z, text, scl, font)
     local scale = (1/dist)*scl
     local fov = (1/GetGameplayCamFov())*100
     local scale = scale*fov
-   
-    if onScreen and dist < Config.DrawRange then
-        SetTextScale(0.0*scale, 1.1*scale)
-        SetTextFont(font)
-        SetTextProportional(1)
-        SetTextColour(255, 255, 255, 255)
-        SetTextDropshadow(0, 0, 0, 0, 255)
-        SetTextEdge(2, 0, 0, 0, 150)
-        SetTextDropShadow()
-        SetTextOutline()
-        SetTextEntry("STRING")
-        SetTextCentre(1)
-        AddTextComponentString(text)
-        DrawText(_x,_y)
+    if draw == nil then
+        if onScreen and dist < Config.DrawRange then
+            SetTextScale(0.0*scale, 1.1*scale)
+            SetTextFont(font)
+            SetTextProportional(1)
+            SetTextColour(255, 255, 255, 255)
+            SetTextDropshadow(0, 0, 0, 0, 255)
+            SetTextEdge(2, 0, 0, 0, 150)
+            SetTextDropShadow()
+            SetTextOutline()
+            SetTextEntry("STRING")
+            SetTextCentre(1)
+            AddTextComponentString(text)
+            DrawText(_x,_y)
+        end
+    else
+        if onScreen and dist < draw then
+            SetTextScale(0.0*scale, 1.1*scale)
+            SetTextFont(font)
+            SetTextProportional(1)
+            SetTextColour(255, 255, 255, 255)
+            SetTextDropshadow(0, 0, 0, 0, 255)
+            SetTextEdge(2, 0, 0, 0, 150)
+            SetTextDropShadow()
+            SetTextOutline()
+            SetTextEntry("STRING")
+            SetTextCentre(1)
+            AddTextComponentString(text)
+            DrawText(_x,_y)
+        end
     end
 end

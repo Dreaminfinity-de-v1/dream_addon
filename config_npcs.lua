@@ -12,5 +12,14 @@ Config.NPCS = {
 	},
 
     -- [[ OTHER NPCs ]]
+	DMVSchool = {
+        model = "a_m_y_bevhills_02",
+        DrawRange = 10,
+        titel = "DMVSchool",--"Verkäufer",
+        subtitel = "Everyone can drive!",--"Welcome by ExampleShop",
+		pos = {
+			{x = -809.2852,  y = -1345.6404,  z = 4.1500, h = 232.55,}, --{x,y,z,h,name(optional),type(optional),model(optional),titel(optional),subtitel(optional)},
+		}
+	},
 
 }
