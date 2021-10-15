@@ -1,16 +1,8 @@
+npcs = {}
 Citizen.CreateThread(function()
 
     for list, v in pairs(Config.NPCS) do
-        RequestModel(GetHashKey(v.model))
-        while not HasModelLoaded(GetHashKey(v.model)) do
-            Wait(1)
-        end
-    
-        RequestAnimDict("mini@strip_club@idles@bouncer@base")
-        while not HasAnimDictLoaded("mini@strip_club@idles@bouncer@base") do
-            Wait(1)
-        end
-
+        
         for i,pos in pairs(v.pos) do
             local type = nil
             if pos.type ~= nil then
@@ -28,6 +20,11 @@ Citizen.CreateThread(function()
                     Wait(1)
                 end
             else
+
+                RequestModel(GetHashKey(v.model))
+                while not HasModelLoaded(GetHashKey(v.model)) do
+                    Wait(1)
+                end
                 model = GetHashKey(v.model)
             end
 
@@ -36,7 +33,16 @@ Citizen.CreateThread(function()
             FreezeEntityPosition(ped, true)
             SetEntityInvincible(ped, true)
             SetBlockingOfNonTemporaryEvents(ped, true)
+
+            RequestAnimDict("mini@strip_club@idles@bouncer@base")
+            while not HasAnimDictLoaded("mini@strip_club@idles@bouncer@base") do
+                Wait(1)
+            end
+
             TaskPlayAnim(ped,"mini@strip_club@idles@bouncer@base","base", 8.0, 0.0, -1, 1, 0, 0, 0, 0)
+            
+
+            table.insert( npcs, ped )
         end
     end
 end)
@@ -87,10 +93,13 @@ Citizen.CreateThread(function()
 end)
 
 
+function removeNPCs()
 
+    for i, v in ipairs(npcs) do
+        DeleteEntity(v)
+    end
 
-
-
+end
 
 function DrawText3D(x,y,z, text, scl, font, draw) 
 
