@@ -18,4 +18,3 @@ AddEventHandler('dream_addon:triggerClientCallback', function(name, otp, ...)
 		TriggerServerEvent('dream_addon:clientCallback', name, otp, ...)
 	end, ...)
 end)
-

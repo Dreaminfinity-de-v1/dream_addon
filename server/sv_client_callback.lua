@@ -32,4 +32,3 @@ function getRandomString(size)
 	end
 	return string
 end
-
