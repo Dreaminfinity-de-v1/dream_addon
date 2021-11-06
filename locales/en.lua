@@ -1,5 +1,5 @@
 Locales['en'] = {
-    ['command_removeweapon_hasalready'] = 'player already has that weapon',
+    ['command_removeweapon_doesen\'thas'] = 'player hasn\'t that weapon',
     ['command_removeweapon'] = 'remove a weapon to a player',
     ['commandgeneric_playerid'] = 'player id',
     ['command_removeweapon_weapon'] = 'weapon name',

@@ -4,23 +4,30 @@ game 'gta5'
 
 description 'FiveM- and ESX-Addon from Dreaminfinity.de'
 
-version '1.1.0'
-
 author 'EThunder, Grewo'
 
+version '1.1.1'
+
 server_scripts {
-	'@mysql-async/lib/MySQL.lua',
 	'@es_extended/locale.lua',
-	'de.lua',
+	'@mysql-async/lib/MySQL.lua',
+
+	'locales/en.lua',
+
 	'config.lua',
+
 	'server/server.lua',
+	'server/sv_commands.lua',
 }
 
 client_scripts {
 	'@es_extended/locale.lua',
-	'de.lua',
+
+	'locales/en.lua',
+
 	'config.lua',
 	'config_npcs.lua',
+
 	'client/client.lua',
 	'client/npcs.lua',
 }
