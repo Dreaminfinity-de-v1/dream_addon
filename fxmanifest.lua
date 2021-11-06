@@ -6,7 +6,7 @@ description 'FiveM- and ESX-Addon from Dreaminfinity.de'
 
 author 'EThunder, Grewo'
 
-version '1.1.1'
+version '1.2.0'
 
 server_scripts {
 	'@es_extended/locale.lua',
@@ -18,6 +18,7 @@ server_scripts {
 
 	'server/server.lua',
 	'server/sv_commands.lua',
+	'server/sv_client_callback.lua',
 }
 
 client_scripts {
@@ -30,6 +31,7 @@ client_scripts {
 
 	'client/client.lua',
 	'client/npcs.lua',
+	'client/client_callback.lua',
 }
 
 dependency {
