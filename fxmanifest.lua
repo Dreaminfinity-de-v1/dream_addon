@@ -2,9 +2,11 @@ fx_version 'adamant'
 
 game 'gta5'
 
-description 'FiveM Server addon by Grewo'
+description 'FiveM- and ESX-Addon from Dreaminfinity.de'
 
 version '1.1.0'
+
+author 'EThunder, Grewo'
 
 server_scripts {
 	'@mysql-async/lib/MySQL.lua',
