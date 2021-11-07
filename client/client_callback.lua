@@ -18,3 +18,11 @@ AddEventHandler('dream_addon:triggerClientCallback', function(name, otp, ...)
 		TriggerServerEvent('dream_addon:clientCallback', name, otp, ...)
 	end, ...)
 end)
+
+-- Example
+--[[ Change from --[[ to ---[[
+DreamAddon.RegisterClientCallback('dream_addon:debug', function(cb, arg)
+	print("Callback request received (" .. arg .. ") and send clallback.")
+	cb("args to server back")
+end)
+--]]

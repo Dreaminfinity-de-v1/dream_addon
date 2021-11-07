@@ -32,3 +32,14 @@ function getRandomString(size)
 	end
 	return string
 end
+
+-- Example
+--[[ Change from --[[ to ---[[
+Citizen.CreateThread(function()
+	Citizen.Wait(1000)
+	print("Send callback request")
+	DreamAddon.TriggerClientCallback('dream_addon:debug',1,function(result)
+		print("Callback received (" .. result .. ")")
+	end, "args to client")
+end)
+--]]
