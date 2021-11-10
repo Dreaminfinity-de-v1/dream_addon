@@ -17,6 +17,7 @@ AddEventHandler('dream_addon:clientCallback', function(name, otp, ...)
 	for i,v in ipairs(clientCallbacks) do
 		if v.name == name and v.otp == otp then
 			v.cb(...)
+			table.remove(clientCallbacks, i)
 			break
 		end
 	end
