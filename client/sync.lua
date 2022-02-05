@@ -20,5 +20,5 @@ function triggerSyncServerCallback(event, ...)
         end
     end
 
-    return data
+    return table.unpack(data)
 end

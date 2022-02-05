@@ -24,5 +24,5 @@ function triggerSyncClientCallback(event, id, ...)
         end
     end
 
-    return data
+    return table.unpack(data)
 end
