@@ -14,10 +14,11 @@ Utils for FiveM and es_extended. Add new commands, functions and more
 local allAllowed, hasPermissions = exports.dream_addon:triggerSyncServerCallback('dream_addon:IsAceAllowed', permissionsList)
 ``` lua
 permissionsList = {'permission_1', 'permission_2', 'permission_3'}
-local allAllowed, hasPermissions = exports.dream_addon:triggerSyncServerCallback('dream_addon:IsAceAllowed', permissionsList)
+local allAllowed, hasOnePermission, hasPermissions = exports.dream_addon:triggerSyncServerCallback('dream_addon:IsAceAllowed', permissionsList)
 
-allAllowed -- true
-hasPermissions -- {'permission_1' = true, 'permission_2' = false, 'permission_3' = true}
+allAllowed -- bool
+hasOnePermission -- bool
+hasPermissions -- {'permission_1' = bool, 'permission_2' = bool, 'permission_3' = bool}
 ```
 
 ### dream_addon:IsAceAllowed with a one permission:
@@ -26,7 +27,7 @@ local hasPermission = exports.dream_addon:triggerSyncServerCallback('dream_addon
 permission = 'permission_1'
 local hasPermission = exports.dream_addon:triggerSyncServerCallback('dream_addon:IsAceAllowed', permission)
 
-hasPermission -- true
+hasPermission -- bool
 ```
 
 ## Commands
