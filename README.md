@@ -11,10 +11,10 @@ Utils for FiveM and es_extended. Add new commands, functions and more
 
 ## Server Events
 ### dream_addon:IsAceAllowed with a list of permissions:
-local allAllowed, hasPermissions = exports.dream_addon:triggerSyncServerCallback('dream_addon:IsAceAllowed', permissionsList)
+local allAllowed, hasPermissions = exports.dream_addon:triggerSyncServerCallback('dream_addon:isAceAllowed', permissionsList)
 ``` lua
 permissionsList = {'permission_1', 'permission_2', 'permission_3'}
-local allAllowed, hasOnePermission, hasPermissions = exports.dream_addon:triggerSyncServerCallback('dream_addon:IsAceAllowed', permissionsList)
+local allAllowed, hasOnePermission, hasPermissions = exports.dream_addon:triggerSyncServerCallback('dream_addon:isAceAllowed', permissionsList)
 
 allAllowed -- bool
 hasOnePermission -- bool
