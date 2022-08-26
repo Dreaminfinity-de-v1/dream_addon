@@ -22,10 +22,10 @@ hasPermissions -- {'permission_1' = bool, 'permission_2' = bool, 'permission_3' 
 ```
 
 ### dream_addon:IsAceAllowed with a one permission:
-local hasPermission = exports.dream_addon:triggerSyncServerCallback('dream_addon:IsAceAllowed', permission)
+local hasPermission = exports.dream_addon:triggerSyncServerCallback('dream_addon:isAceAllowed', permission)
 ``` lua
 permission = 'permission_1'
-local hasPermission = exports.dream_addon:triggerSyncServerCallback('dream_addon:IsAceAllowed', permission)
+local hasPermission = exports.dream_addon:triggerSyncServerCallback('dream_addon:isAceAllowed', permission)
 
 hasPermission -- bool
 ```
